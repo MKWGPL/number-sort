@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int e, rob, q;
+    int dane[100];
+
+    cout << "Podaj liczbe liczb: ";
+    cin >> e;
+
+    for (size_t i = 0; i < e; i++)
+    {
+        cout << "Podaj liczbe nr " << i << ": ";
+        cin >> dane[i];
+        cout << endl;
+    }
+
+    for (int i = e-1; i >= 0; i--)
+    {
+        for (int j = i-1; j >= 0; j--)
+        {
+            if (dane[i] < dane[j])
+            {
+                rob = dane[i];
+                dane[i] = dane[j];
+                dane[j] = rob;
+            }
+        }
+    }
+
+    cout << "W kolejnosci od najmniejszego do najwiekszego liczby sa: \n";
+    for (size_t i = 0; i < e; i++)
+    {
+        cout << dane[i] << endl;
+    }
+
+    return 0;
+}
